@@ -31,6 +31,8 @@ for sheet in sheets:
     df['day'] = sheet
     all_dfs.append(df)
 combined = pd.concat(all_dfs, ignore_index=True)
+daily_pax = daily_pax[daily_pax['pax'] > 0]
+
 
 
 # ── Clean & Prep ───────────────────────────────────
@@ -90,7 +92,12 @@ fig3 = px.bar(daily_pax, x='day', y='pax', color='Guest_type',
               barmode='group', title='Total Pax per Day by Guest Type')
 st.plotly_chart(fig3)
 st.info("✅ Task 1: Walk-in เพิ่มขึ้นทุกวัน In-house คงที่ — ยุ่งจริงเพราะเกิดจากลูกค้าฝั่ง Walk in เยอะกว่าในทุกวัน")
-st.info("❌ Task 2 Action 2: Walk-in พุ่งขึ้นจาก TikTok viral ไม่ใช่เพราะราคาถูก ขึ้นราคาไม่ลด demand")
+st.info("""
+❌ Task 2 Action 2: ขึ้นราคาเป็น 259 บาท ไม่ได้ผล เพราะ
+- Walk-in พุ่งจาก 49 → 115 คน ภายใน 2 วัน จาก TikTok viral
+- In-house คงที่ ~51-61 คนทุกวัน ไม่ได้รับผลจากราคา
+- demand ที่มาจาก viral ไม่ sensitive กับราคา ขึ้น 100 บาทไม่หยุดคนที่อยากลอง
+""")
 
 # Comment 3
 st.header("Comment 3 — Walk-in นั่งนานกว่า In-house")
