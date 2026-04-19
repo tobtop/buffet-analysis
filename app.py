@@ -30,7 +30,6 @@ for sheet in sheets:
     df = pd.read_excel("2026-Data-Test1-Final.xlsx", sheet_name=sheet)
     df['day'] = sheet
     all_dfs.append(df)
-    daily_pax = daily_pax[daily_pax['pax'] > 0]
 combined = pd.concat(all_dfs, ignore_index=True)
 
 
