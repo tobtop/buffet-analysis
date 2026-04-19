@@ -64,7 +64,7 @@ st.title("Task 1 — พิสูจน์คำพูดพนักงาน")
 
 # Comment 1
 st.header("Comment 1 —  ลูกค้าต้องรอนานจริงไหม? และบางคนเลิกรอจนกลับ")
-st.write("พนักงานบอกว่าลูกค้าทั้งสองประเภทต้องรอนานจนบางคนเลิกรอ ข้อมูลพิสูจน์ได้ดังนี้")
+st.write("พนักงานบอกว่าลูกค้าทั้งสองประเภทต้องรอนานจนบางคนเลิกรอ จะเห็นได้ว่าลูกค้าจาก Walk-in รอนานกว่าจริงและเป็นเวลา 38 นาที")
 
 col1, col2, col3 = st.columns(3)
 col1.metric("In-house รอเฉลี่ย", "28 นาที")
@@ -80,7 +80,7 @@ st.info("❌ Task 2 Action 3: Queue skip ช่วย In-house แต่ Walk-in
 fig2 = px.bar(wa_summary, x='Guest_type', y='walkaway_count',
               color='Guest_type', title='Walk-away Count by Guest Type')
 st.plotly_chart(fig2)
-st.caption("✅ Task 1: มีคนเลิกรอจริง 14 กลุ่ม ทั้ง In-house และ Walk-in")
+st.info("✅ Task 1: มีคนเลิกรอจริง 14 กลุ่ม ทั้ง In-house และ Walk-in")
 st.info("❌ Task 2 Action 3: Walk-away เป็น Walk-in 7 กลุ่ม เท่ากับ In-house → queue skip ไม่ได้แก้ครึ่งหนึ่งของปัญหา")
 
 # Comment 2
