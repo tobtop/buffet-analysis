@@ -113,7 +113,7 @@ fig4 = px.box(has_meal, x='Guest_type', y='meal_dur_min',
               color='Guest_type', title='Meal Duration by Guest Type')
 st.plotly_chart(fig4)
 
-st.caption("✅ Task 1: Walk-in นั่งนานกว่า In-house จริง — median ต่างกัน 27 นาทีต่อกลุ่ม")
+st.info("✅ Task 1: Walk-in นั่งนานกว่า In-house จริง — median ต่างกัน 27 นาทีต่อกลุ่ม")
 st.info("""
 ❌ Task 2 Action 1: ลดเวลานั่งจาก 5 ชั่วโมง ไม่ได้ผล เพราะ
 - Walk-in นั่ง median แค่ 66 นาที ไม่ใช่ 5 ชั่วโมงอยู่แล้ว
