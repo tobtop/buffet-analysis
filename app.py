@@ -64,3 +64,32 @@ has_meal = combined[combined['meal_dur_min'].notna() & (combined['meal_dur_min']
 fig4 = px.box(has_meal, x='Guest_type', y='meal_dur_min',
               color='Guest_type', title='Meal Duration by Guest Type')
 st.plotly_chart(fig4)
+# ── Task 2 ──────────────────────────────────────
+st.title("Task 2 — โต้แย้ง 3 Actions")
+
+# Action 1 — ลดเวลานั่ง
+st.header("Action 1 — ลดเวลานั่งจาก 5 ชั่วโมง")
+st.write("""
+**ทำไมไม่ได้ผล:** Walk-in ส่วนใหญ่นั่งแค่ 66 นาที (median) 
+ไม่ใช่ 5 ชั่วโมง แปลว่าปัญหาไม่ได้มาจากการนั่งนานเกินไป 
+แต่มาจาก demand ที่เกิน capacity อยู่แล้ว
+""")
+st.plotly_chart(fig4)  # reuse meal duration box plot
+
+# Action 2 — ขึ้นราคา
+st.header("Action 2 — ขึ้นราคาเป็น 259 ทุกวัน")
+st.write("""
+**ทำไมไม่ได้ผล:** Walk-in เพิ่มขึ้นมากจาก TikTok viral 
+ไม่ใช่เพราะราคาถูก demand ประเภทนี้ไม่ sensitive กับราคา 
+ขึ้นราคาแค่เก็บเงินได้มากขึ้น แต่ไม่ลดความแน่น
+""")
+st.plotly_chart(fig3)  # reuse daily pax chart
+
+# Action 3 — Queue skip
+st.header("Action 3 — Queue Skip สำหรับ In-house")
+st.write("""
+**ทำไมไม่ได้ผล:** Walk-away ส่วนใหญ่เป็น Walk-in 
+Queue skip ช่วยแค่ In-house แต่ไม่แก้ปัญหา Walk-in 
+ที่รอนานและเลิกรอ ซึ่งเป็นกลุ่มใหญ่กว่า
+""")
+st.plotly_chart(fig2)  # reuse walk-away chart
