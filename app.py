@@ -8,9 +8,9 @@ st.title("Busy Buffet Analysis — Hotel Amber 85")
 st.markdown("""
 ### บริบทของโจทย์
 โรงแรม Hotel Amber 85 เปิดบุฟเฟ่ต์อาหารเช้าพร้อมโปรโมชั่น:
-- 🍽️ กินได้ไม่อั้น (All you can eat)
-- 💰 ราคา 159 บาท วันธรรมดา / 199 บาท วันหยุด  
-- ⏰ นั่งได้สูงสุด 5 ชั่วโมง
+- กินได้ไม่อั้น (All you can eat)
+- ราคา 159 บาท วันธรรมดา / 199 บาท วันหยุด  
+- นั่งได้สูงสุด 5 ชั่วโมง
 
 หลังโปรโมทผ่าน TikTok ลูกค้า Walk-in เพิ่มขึ้นกะทันหัน 
 ทำให้บุฟเฟ่ต์แน่นและบริหารยาก ทีม data จึงถูกส่งมาวิเคราะห์
@@ -22,6 +22,16 @@ st.markdown("""
 """)
 
 st.divider()
+
+# ── Load Data ──────────────────────────────────────
+sheets = ['133', '143', '153', '173', '183']
+all_dfs = []
+for sheet in sheets:
+    df = pd.read_excel("2026-Data-Test1-Final.xlsx", sheet_name=sheet)
+    df['day'] = sheet
+    all_dfs.append(df)
+combined = pd.concat(all_dfs, ignore_index=True)
+
 
 # ── Clean & Prep ───────────────────────────────────
 def to_minutes(t):
