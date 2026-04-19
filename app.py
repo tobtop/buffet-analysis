@@ -102,8 +102,21 @@ st.info("""
 # Comment 3
 st.header("Comment 3 — Walk-in นั่งนานกว่า In-house")
 
+st.write("พนักงานบอกว่า Walk-in นั่งอยู่ทั้งวันทำให้โต๊ะไม่พอ ข้อมูลพิสูจน์ได้ดังนี้")
+
+col1, col2, col3 = st.columns(3)
+col1.metric("In-house นั่งเฉลี่ย", "46 นาที")
+col2.metric("Walk-in นั่งเฉลี่ย", "73 นาที")
+col3.metric("ต่างกัน", "27 นาที")
+
 fig4 = px.box(has_meal, x='Guest_type', y='meal_dur_min',
               color='Guest_type', title='Meal Duration by Guest Type')
 st.plotly_chart(fig4)
-st.caption("✅ Task 1: Walk-in นั่งเฉลี่ย 73 นาที vs In-house 46 นาที ต่างกัน 27 นาที")
-st.info("❌ Task 2 Action 1: Walk-in นั่งแค่ 66 นาที (median) ไม่ใช่ 5 ชั่วโมง → ลดเวลานั่งไม่ได้แก้ปัญหา demand เกิน capacity")
+
+st.caption("✅ Task 1: Walk-in นั่งนานกว่า In-house จริง — median ต่างกัน 27 นาทีต่อกลุ่ม")
+st.info("""
+❌ Task 2 Action 1: ลดเวลานั่งจาก 5 ชั่วโมง ไม่ได้ผล เพราะ
+- Walk-in นั่ง median แค่ 66 นาที ไม่ใช่ 5 ชั่วโมงอยู่แล้ว
+- ปัญหาจริงคือ demand เกิน capacity ไม่ใช่การนั่งนานเกินไป
+- ลด time limit ไม่ได้เพิ่มโต๊ะว่าง ถ้าคนยังแห่มาเท่าเดิม
+""")
