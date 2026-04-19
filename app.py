@@ -63,7 +63,13 @@ daily_pax = combined.groupby(['day','Guest_type'])['pax'].sum().reset_index()
 st.title("Task 1 — พิสูจน์คำพูดพนักงาน")
 
 # Comment 1
-st.header("Comment 1 — ลูกค้าต้องรอนาน และบางคนเลิกรอกลับ")
+st.header("Comment 1 —  ลูกค้าต้องรอนานจริงไหม? และบางคนเลิกรอจนกลับ")
+st.write("พนักงานบอกว่าลูกค้าทั้งสองประเภทต้องรอนานจนบางคนเลิกรอ ข้อมูลพิสูจน์ได้ดังนี้")
+
+col1, col2, col3 = st.columns(3)
+col1.metric("In-house รอเฉลี่ย", "28 นาที")
+col2.metric("Walk-in รอเฉลี่ย", "38 นาที")
+col3.metric("Walk-away ทั้งหมด", "14 กลุ่ม")
 
 fig1 = px.bar(wait_summary, x='Guest_type', y='avg_wait_min',
               color='Guest_type', title='Average Wait Time by Guest Type')
